@@ -3,6 +3,7 @@ Pastezone Go is a simple pastezone written in Golang and store paste entries in 
 
 ## Dependencies
 Golang installed and added to path
+
 Supervisor installed
 
 ## Usage

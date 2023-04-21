@@ -1,0 +1,1 @@
+# pastezone-go

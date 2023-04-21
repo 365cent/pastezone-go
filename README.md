@@ -23,6 +23,14 @@ To test this program without running as service:
 go run main.go
 ```
 
+If you intend to use it as a public server, it is recommended to utilize Caddy as a reverse proxy.
+```go
+paste.yourdomain.com {
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:9000
+}
+```
+
 ## Note
 The program is initially set to listen on port **9000**. If you wish to modify this setting, please refer to the "main.go" file. Additionally, ensure that the path to the program correctly points to your executable file, and that your current username is reflected in the "supervisor-pastezone.conf" file.
 

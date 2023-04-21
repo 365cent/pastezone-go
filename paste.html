@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pastezone</title>
+        <style>pre{white-space: pre-wrap;}</style>
+</head>
+
+<body>
+        <pre>{{.Content}}</pre>
+        <hr>
+        <p>Created {{.Created | formatTime}} - Expires {{.Expires | formatTime}}</p>
+</body>
+
+</html>

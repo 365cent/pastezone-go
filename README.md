@@ -17,4 +17,15 @@ cp supervisor-pastezone.conf /etc/supervisor/conf.d
 supervisorctl reread
 supervisorctl reload
 ```
-The program is initially set to listen on port 9000. If you wish to modify this setting, please refer to the "main.go" file. Additionally, ensure that the path to the program correctly points to your executable file, and that your current username is reflected in the "supervisor-pastezone.conf" file.
+
+To test this program without running as service:
+```bash
+go run main.go
+```
+
+## Note
+The program is initially set to listen on port **9000**. If you wish to modify this setting, please refer to the "main.go" file. Additionally, ensure that the path to the program correctly points to your executable file, and that your current username is reflected in the "supervisor-pastezone.conf" file.
+
+Storing pastes in a JSON file is not a secure approach. Simply moving the file to an upper directory will only conceal entries from other visitors.
+
+By default, each paste will expire after 7 days, and the entry will be reused for new pastes once it has expired. If desired, the expiry time can be adjusted by modifying the "expires" variable in the "main.go" file.

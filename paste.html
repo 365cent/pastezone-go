@@ -11,6 +11,10 @@
         <pre>{{.Content}}</pre>
         <hr>
         <p>Created {{.Created | formatTime}} - Expires {{.Expires | formatTime}}</p>
+        <script>
+                const text = document.getElementsByTagName('pre')[0];
+                text.onclick = () => {navigator.clipboard.writeText(text.innerText)};
+        </script>
 </body>
 
 </html>

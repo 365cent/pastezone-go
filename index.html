@@ -4,17 +4,23 @@
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pastezone</title>
+        <style>
+                html {font-family: "Avenir", "Inter", sans-serif;}
+                head, title, form {display: grid;}
+                head {background: linear-gradient(0deg, rgb(255, 255, 255) 0px, rgba(251, 251, 251, 0.1) 100%), linear-gradient(91.15deg, rgb(202, 221, 255) 55%, rgba(255, 255, 255, 0) 124%);}
+                title {font-size: 2em; line-height: 3em; margin: auto;}
+                form, footer {max-width: 720px; margin: auto;}
+                textarea {max-width: calc(100% - 2em); padding: 1em; box-shadow: 0 0 0 .1em #000; border-radius: 0.3rem; border: none;}
+                input {margin: 0 0 1em auto; padding: .3em .6em; cursor: pointer;}
+        </style>
 </head>
 
 <body>
-        <h1>Pastezone</h1>
-
         <form action="/new" method="post">
                 <label for="content">Content:</label><br>
                 <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
                 <input type="submit" value="Create">
         </form>
-
         <hr>
         <footer>Pastezone</footer>
 </body>

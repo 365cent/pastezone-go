@@ -2,27 +2,105 @@
 <html>
 
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pastezone</title>
-        <style>
-                html {font-family: "Avenir", "Inter", sans-serif;}
-                head, title, form {display: grid;}
-                head {background: linear-gradient(0deg, rgb(255, 255, 255) 0px, rgba(251, 251, 251, 0.1) 100%), linear-gradient(91.15deg, rgb(202, 221, 255) 55%, rgba(255, 255, 255, 0) 124%);}
-                title {font-size: 2em; line-height: 3em; margin: auto;}
-                form, footer {max-width: 720px; margin: auto;}
-                textarea {max-width: calc(100% - 2em); padding: 1em; box-shadow: 0 0 0 .1em #000; border-radius: 0.3rem; border: none;}
-                input {margin: 0 0 1em auto; padding: .3em .6em; cursor: pointer;}
-        </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paste</title>
+    <style>
+        @import url(https://font.mxtrans.net/css/tiempos);
+
+        body {
+            font-family: 'Tiempos Text Regular', 'Times New Roman', Times, serif;
+            background-color: #f2f1ea;
+            margin-bottom: 3em;
+        }
+
+        form,
+        title {
+            margin: auto
+        }
+
+        input,
+        textarea {
+            transition: .25s
+        }
+
+        form,
+        head,
+        title {
+            display: grid
+        }
+
+        title {
+            font-size: 3.2em;
+            padding-top: 2em
+        }
+
+        form {
+            max-width: 540px;
+            position: relative
+        }
+
+        form::after,
+        textarea {
+            grid-area: 1/1/2/2
+        }
+
+        form::after {
+            content: attr(data-replicated-value) " ";
+            white-space: pre-wrap;
+            visibility: hidden
+        }
+
+        textarea {
+            width: calc(100% - 2em);
+            max-width: 540px;
+            padding: 1em;
+            border-radius: .6rem;
+            border-color: #d6d5ce;
+            outline: 0;
+            resize: vertical
+        }
+
+        textarea:focus {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
+        }
+
+        textarea::placeholder {
+            color: #d6d5ce
+        }
+
+        input {
+            position: absolute;
+            right: .6em;
+            top: calc(100% - 3em);
+            padding: .5em 1em;
+            background-color: #ba5b38;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 1em
+        }
+
+        input:hover {
+            background-image: linear-gradient(#ba5b38, #94482c)
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            padding: 1em;
+            width: 100%;
+            text-align: center
+        }
+    </style>
 </head>
 
 <body>
-        <form action="/new" method="post">
-                <label for="content">Content:</label><br>
-                <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
-                <input type="submit" value="Create">
-        </form>
-        <hr>
-        <footer>Pastezone</footer>
+    <form action="/new" method="post">
+        <textarea name="content" placeholder="What would you like to paste?"
+            onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+        <input type="submit" value="Create">
+    </form>
+    <footer>paste.mx.sb</footer>
 </body>
 
 </html>
